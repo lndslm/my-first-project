@@ -52,7 +52,7 @@ a {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 600px;
 }
 
 #city-name {
@@ -82,4 +82,10 @@ a {
 #code-link {
   font-size: 13px;
   margin-top: 5px;
+}
+
+#units {
+  position: relative;
+  font-size: 20px;
+  top: -9px;
 }
