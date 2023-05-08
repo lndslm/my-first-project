@@ -21,19 +21,29 @@
   <body>
     <div class="container">
       <form id="search-city">
-        <input
-          type="text"
-          name="city"
-          id="city-name"
-          placeholder="Enter city name"
-          autocomplete="off"
-        />
-        <button type="button" class="btn" id="search-button">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <button type="button" class="btn" id="current-location">
-          <i class="fa-solid fa-location-dot"></i>
-        </button>
+        <div class="search-engine">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-10">
+                <input
+                  type="text"
+                  name="city"
+                  id="city-name"
+                  placeholder="Enter city name"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-2">
+                <button type="button" class="btn" id="search-button">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button type="button" class="btn" id="current-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
 
       <div class="card current-datas">
