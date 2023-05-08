@@ -54,7 +54,8 @@ function displayWeatherConditions(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector(".sky").innerHTML = response.data.weather[0].main;
+  document.querySelector(".sky").innerHTML =
+    response.data.weather[0].description;
 }
 
 function getPosition(event) {
