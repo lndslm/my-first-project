@@ -20,11 +20,6 @@ a {
 .sky {
   font-size: 14px;
   font-weight: normal;
-  display: inline-block;
-}
-
-.sky:first-letter {
-  text-transform: capitalize;
 }
 
 .date {
