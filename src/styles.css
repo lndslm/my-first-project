@@ -66,7 +66,7 @@ a {
 
 #celsius-link,
 #farenheit-link {
-  color: #363636;
+  color: black;
 }
 
 #celsius-link:hover,
@@ -75,8 +75,13 @@ a {
   text-decoration-thickness: 2px;
 }
 
+.active {
+  font-weight: 900;
+}
+
 #current-temperature {
   font-weight: bold;
+  font-size: 34px;
 }
 
 #code-link {
@@ -87,5 +92,5 @@ a {
 #units {
   position: relative;
   font-size: 20px;
-  top: -9px;
+  top: -12px;
 }
