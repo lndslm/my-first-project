@@ -44,11 +44,7 @@ a {
 }
 
 .card {
-  background: linear-gradient(
-    179.7deg,
-    rgb(197, 214, 227) 2.9%,
-    rgb(144, 175, 202) 97.1%
-  );
+  background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
 }
 
 .container {

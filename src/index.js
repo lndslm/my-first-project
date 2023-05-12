@@ -44,6 +44,16 @@ function searchCity(city) {
   axios.get(apiURL).then(displayWeatherConditions);
 }
 
+function changeBackgroundColor(response) {
+  let weatherColor = document.getElementsByClassName("card");
+  if (
+    response.data.weather[0].icon === "01d" ||
+    response.data.weather[0].icon === "01n"
+  ) {
+    weatherColor.style.backgroundImage = `linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)`;
+  }
+}
+
 function displayWeatherConditions(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#current-temperature").innerHTML =
@@ -63,6 +73,8 @@ function displayWeatherConditions(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  changeBackgroundColor(response);
 }
 
 function getPosition(event) {
