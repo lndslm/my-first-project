@@ -31,6 +31,29 @@ function displayDate(date) {
   let formattedDate = `${day} ${month} ${monthDate}, ${hours}:${minutes}`;
   return formattedDate;
 }
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+              <div class="weather-forecast-date">${day}</div>
+              <div class="weather-forecast-icon">⛅</div>
+              <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-max">6°</span>
+                <span class="weather-forecast-temperature-min">-3°</span>
+            </div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-name").value;
@@ -45,13 +68,22 @@ function searchCity(city) {
 }
 
 function changeBackgroundColor(response) {
-  let weatherColor = document.getElementsByClassName("card");
+  let weatherBackgroundColor = document.getElementsByClassName("card");
   if (
     response.data.weather[0].icon === "01d" ||
     response.data.weather[0].icon === "01n"
   ) {
-    weatherColor.style.backgroundImage = `linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)`;
+    weatherBackgroundColor.style.backgroundColor = "#ffffff";
   }
+}
+
+function getForecast(coord) {
+  let latitude = coord.lat;
+  let longitude = coord.lon;
+  let apiKey = "d1a86552de255334f6117b348c4519bd";
+  let units = "metric";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function displayWeatherConditions(response) {
@@ -75,6 +107,7 @@ function displayWeatherConditions(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   changeBackgroundColor(response);
+  getForecast(response.data.coord);
 }
 
 function getPosition(event) {
@@ -128,5 +161,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Honolulu");
-
-//poser la question dans Slack de la necessite de let celsiusTemperature = null - je l'ai retire mais le code fonctionne toujours pareil
