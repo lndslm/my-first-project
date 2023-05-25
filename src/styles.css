@@ -63,21 +63,6 @@ a {
   background: #fafafa;
 }
 
-#celsius-link,
-#farenheit-link {
-  color: black;
-}
-
-#celsius-link:hover,
-#farenheit-link:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-}
-
-.active {
-  font-weight: 900;
-}
-
 #current-temperature {
   font-weight: bold;
   font-size: 34px;

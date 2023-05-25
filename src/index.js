@@ -176,8 +176,6 @@ function displayWeatherConditions(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#current-temperature").innerHTML =
     Math.round(celsiusTemperature);
-  celsiusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -211,25 +209,6 @@ function showPosition(position) {
   axios.get(apiURL).then(displayWeatherConditions);
 }
 
-function displayFarenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temperature");
-  let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
-  celsiusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  celsiusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
-}
-
-celsiusTemperature = null;
-
 let currentDate = document.querySelector(".date");
 currentDate.innerHTML = displayDate(new Date());
 
@@ -241,11 +220,5 @@ searchButton.addEventListener("click", handleSubmit);
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getPosition);
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Honolulu");
