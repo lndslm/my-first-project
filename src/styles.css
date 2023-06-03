@@ -70,7 +70,8 @@ a {
 
 #code-link {
   font-size: 13px;
-  margin-top: 5px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 #units {
